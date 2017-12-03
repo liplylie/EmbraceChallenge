@@ -14,7 +14,7 @@ class Nav extends Component {
           <div className="container">
             <span className="navbar-brand mb-0">
               <Link to='/' className="nav-link">
-                DogLog
+                DogLog 
               </Link>
             </span>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,9 +28,6 @@ class Nav extends Component {
                 <li className="nav-item">
                   <Link to="/favoriteDogs" className="nav-link">Favorite Dogs</Link>
                 </li>
-                {/* <li className="nav-item">
-                  <a href="#" className="nav-link">Login</a>
-                </li> */}
               </ul>
             </div>
           </div>
