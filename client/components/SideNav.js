@@ -30,19 +30,16 @@ class SideNav extends Component {
   }
 
   render() {
-  	console.log(this.state.dogs, 'dogs')
   	if (this.state.dogs.length === 0) {
   		return (
   			<div className="loader"></div>
   		)
   	} else {
     return (
-      <div style={{flex:1.5, backgroundColor: "gray", maxHeight: '100vh', overflowY: 'scroll', minWidth: '10em'}}>
-            <div style={{paddingTop: '4.5em', paddingLeft: '.5em'}}>
+      <div style={{flex:1.5, backgroundColor: "#FFF0F5", maxHeight: '100vh', overflowY: 'scroll', minWidth: '10em',paddingTop: '4.5em', paddingLeft: '.5em'}}>
         {this.state.dogs.map((dog,i) => {
         	return <DogListEntry key={i} dog={dog}/>
         })}  
-        	</div>
 			</div>
 		)     
 	}
