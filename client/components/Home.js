@@ -9,9 +9,9 @@ class Home extends Component {
 
   render() { 
     return (
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', maxHeight: '100vh'}}>
       <SideNav/>
-        <div style={{flex: 10, marginTop: '3em', maxHeight: '100vh', backgroundColor: 'lightpink',  overflow: "scroll"}}>
+        <div style={{flex: 10, marginTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
           <div className="row">
               <div className="col-md-4"></div>
               <div className="col-md-4">

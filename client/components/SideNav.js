@@ -9,7 +9,7 @@ class SideNav extends Component {
 
   render() {
     return (
-      <div style={{flex:1.5, backgroundColor: "gray", maxHeight: '100vh', overflowY: 'scroll'}}>
+      <div style={{flex:1.5, backgroundColor: "gray", maxHeight: '100vh', overflowY: 'scroll', minWidth: '10em'}}>
         <div >
             <div className="sidebar-header">
                 <h3>Collapsible Sidebar </h3>

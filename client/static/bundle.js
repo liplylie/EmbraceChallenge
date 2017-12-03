@@ -26042,11 +26042,11 @@ var Home = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { style: { display: 'flex' } },
+        { style: { display: 'flex', maxHeight: '100vh' } },
         _react2.default.createElement(_SideNav2.default, null),
         _react2.default.createElement(
           'div',
-          { style: { flex: 10, marginTop: '3em', maxHeight: '100vh', backgroundColor: 'lightpink', overflow: "scroll" } },
+          { style: { flex: 10, marginTop: '3em', backgroundColor: 'lightpink', overflow: "scroll" } },
           _react2.default.createElement(
             'div',
             { className: 'row' },
@@ -26136,7 +26136,7 @@ var SideNav = function (_Component) {
                                 value: function render() {
                                                 return _react2.default.createElement(
                                                                 'div',
-                                                                { style: { flex: 1.5, backgroundColor: "gray", maxHeight: '100vh', overflowY: 'scroll' } },
+                                                                { style: { flex: 1.5, backgroundColor: "gray", maxHeight: '100vh', overflowY: 'scroll', minWidth: '10em' } },
                                                                 _react2.default.createElement(
                                                                                 'div',
                                                                                 null,
