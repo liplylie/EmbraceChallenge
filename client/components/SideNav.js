@@ -1,91 +1,52 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import DogListEntry from './DogListEntries.js'
 
 class SideNav extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+    	dogs: []
+    }
+  }
 
+  componentWillMount(){
+  	let that = this
+  	axios.get('https://dog.ceo/api/breeds/list/all')
+  		.then(function ({data}) {
+		    console.log(data, 'response list all')
+		    for ( let dog in data.message){
+		    	that.setState({
+		    	dogs: [...that.state.dogs, dog]
+		    })
+		    }
+		    
+		  })
+
+		  .catch(function (error) {
+		    console.log(error, 'error list all')
+		  });
   }
 
   render() {
+  	console.log(this.state.dogs, 'dogs')
+  	if (this.state.dogs.length === 0) {
+  		return (
+  			<div className="loader"></div>
+  		)
+  	} else {
     return (
       <div style={{flex:1.5, backgroundColor: "gray", maxHeight: '100vh', overflowY: 'scroll', minWidth: '10em'}}>
-        <div >
-            <div className="sidebar-header">
-                <h3>Collapsible Sidebar </h3>
-            </div>
-            <ul >
-                <li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-                <li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li><li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-<li>boxer</li>
-                <li><a>retriever</a></li>
-                <li><a>pug</a></li>
-                <li><a>spaniel</a></li>
-
-
-            </ul>
-        </div>
-
-		</div>
+            <div style={{paddingTop: '4.5em', paddingLeft: '.5em'}}>
+        {this.state.dogs.map((dog,i) => {
+        	return <DogListEntry key={i} dog={dog}/>
+        })}  
+        	</div>
+			</div>
 		)     
 	}
+}
 }
 
 
