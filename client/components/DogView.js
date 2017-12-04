@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import SideNav from './SideNav.js';
+import { connect } from 'react-redux'
 
-class FavoriteDogs extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
+     console.log(props, 'home props')
   }
-  render() { 
+
+   render() { 
       return (
         <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
             <div className="row">
@@ -17,7 +20,12 @@ class FavoriteDogs extends Component {
             </div>
             <div className="row">
                 <div className="col align-self-center text-center" style={{margin: '2em', backgroundColor: 'lightpink'}}>
-                  <p> Favorites </p>
+                  <p> Dog Type </p>
+                  <div className="col-md-12 text-center"> 
+                    <button type="button" className="btn btn-outline-dark">
+                    Add to Favorite 
+                    </button>
+                  </div>
                 </div>
             </div>
       </div>
@@ -25,4 +33,11 @@ class FavoriteDogs extends Component {
   }
 }
 
-export default FavoriteDogs
+const mapStateToProps = (store) => {
+  console.log(store, 'dog store')
+  return {
+    dogInfo: store.dogInfo
+  }
+}
+
+export default connect(mapStateToProps)(Home)

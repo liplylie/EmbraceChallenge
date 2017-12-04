@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import clickDogAction from '../actions/clickDogActions.js'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class DogListEntries extends Component{
 	constructor(props){
@@ -23,7 +24,7 @@ class DogListEntries extends Component{
 	render(){
 		return (
 			<div>
-				<a className="dogListEntry" onClick={()=>{this.handleClick(this.props.dog)}}> {this.props.dog} </a>
+				<Link to={`/dog/${this.props.dog}`} className="dogListEntry" onClick={()=>{this.handleClick(this.props.dog)}}>{this.props.dog}</Link>
 			</div>
 		)
 	}
