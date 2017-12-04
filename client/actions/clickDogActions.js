@@ -1,6 +1,6 @@
 export default function clickDogAction(info){
 	return {
-	type: "PROFILE_INFO",
+	type: "CLICK_DOG",
 	payload: info
 	}
 }

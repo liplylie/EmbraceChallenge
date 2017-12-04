@@ -1,4 +1,4 @@
-html , body {
+body {
 	background-color:'lightpink'
 }
 
@@ -24,3 +24,4 @@ html , body {
 .dogListEntry:hover {
 	text-decoration: underline
 }
+
