@@ -20,12 +20,12 @@ class App extends Component {
         <div className="main">
           <Nav />
           <div style={{display: 'flex'}}>
-          <SideNav />
-            <Switch>
-              <Route exact path="/" component={DefaultHome} />
-              <Route exact path="/dog/:dog" component={DogView} />
-              <Route exact path="/favoriteDogs" component={FavoriteDogs} />
-            </Switch>
+            <SideNav />
+              <Switch>
+                <Route exact path="/" component={DefaultHome} />
+                <Route exact path="/dog/:dog" component={DogView} />
+                <Route exact path="/favoriteDogs" component={FavoriteDogs} />
+              </Switch>
           </div>
         </div>
       </Router>
