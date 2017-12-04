@@ -11,7 +11,7 @@ class SideNav extends Component {
     }
   }
 
-  componentWillMount(){
+  componentDidMount(){
   	let that = this
   	axios.get('https://dog.ceo/api/breeds/list/all')
   		.then(function ({data}) {
