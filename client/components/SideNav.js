@@ -19,11 +19,9 @@ class SideNav extends Component {
 		    for ( let dog in data.message){
 		    	that.setState({
 		    	dogs: [...that.state.dogs, dog]
-		    })
+		    	})
 		    }
-		    
 		  })
-
 		  .catch(function (error) {
 		    console.log(error, 'error list all')
 		  });
@@ -32,7 +30,9 @@ class SideNav extends Component {
   render() {
   	if (this.state.dogs.length === 0) {
   		return (
-  			<div className="loader"></div>
+  			<div style={{flex:1.5, backgroundColor: "#FFF0F5", minHeight: '100vh', overflowY: 'scroll', minWidth: '10em',paddingTop: '4.5em', paddingLeft: '.5em'}}>
+  				<div className="loader"></div>
+  			</div>
   		)
   	} else {
     return (
