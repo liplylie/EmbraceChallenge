@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Nav from './Nav.js';
 import DogView from './DogView.js';
@@ -23,7 +24,7 @@ class App extends Component {
           <SideNav />
             <Switch>
               <Route exact path="/" component={DefaultHome} />
-              <Route exact path="/dog/:dog" component={DogView} />
+              <Route exact path="/dog/:dog" component={() => (<DogView dogInfo={this.props.dogInfo}/>)} /> />
               <Route exact path="/favoriteDogs" component={FavoriteDogs} />
             </Switch>
           </div>
@@ -33,4 +34,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (store) => {
+  console.log(store, 'dog store in app js')
+  return {
+    dogInfo: store.clickDog
+  }
+}
+
+export default connect(mapStateToProps)(App)
+
+
+// <Route exact path='/account' component={() => (<Dashboard sqlUser={this.state.sqlUser} passItems={this.state.allItems}/>)} />
