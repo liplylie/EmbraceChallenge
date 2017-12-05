@@ -14,7 +14,7 @@ class Nav extends Component {
           <div className="container">
             <span className="navbar-brand mb-0">
               <Link to='/' className="nav-link">
-                DogLog 
+                <span style={{fontfamily: 'Helvetica'}}>DogLog</span>
               </Link>
             </span>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
