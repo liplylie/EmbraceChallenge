@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import SideNav from './SideNav.js';
 import { connect } from 'react-redux'
 import ImageZoom from 'react-medium-image-zoom'
+import $ from "jquery";
 
 class DogView extends Component {
   constructor(props) {
     super(props);
-     this.state = {
+      this.state = {
         dogArray: []
-     } 
+      } 
+    this.handleClick = this.handleClick.bind(this)
   } 
 
   componentWillMount(){
@@ -21,14 +23,20 @@ class DogView extends Component {
     console.log(this.state.dogArray, 'componentDidMount')
   }
 
-   render() {
-    if (this.state.dogArray.length === 0){
-      return (
-        <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
-          <div className="loader"></div>
-        </div>
-        )
-    } else {
+  handleClick(i){
+    $(`#but${i}`).text("Added")
+  }
+
+
+
+ render() {
+  if (this.state.dogArray.length === 0){
+    return (
+      <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
+        <div className="loader"></div>
+      </div>
+      )
+  } else {
       return (
         <div style={{flex:10, maxHeight: '100vh', backgroundColor: 'lightpink', overflow: "scroll"}}>
             <div className="row">
@@ -51,21 +59,20 @@ class DogView extends Component {
                           }}
                         />
                         <div className="col-md-12 text-center"> 
-                          <button type="button" className="btn btn-outline-dark" style={{marginBottom:".5em"}} >
+                          <a id={`but${i}`}className="btn btn-outline-dark" style={{marginBottom:".5em"}} onClick={()=>{this.handleClick(i)}}>
                           Add to Favorites
-                          </button>
+                          </a>
                         </div>
                       </div>
                     )
-                  })
-                  }
+                  })}
                 </div>
-                </div>
+              </div>
             </div>
-      </div>
-    )
-  }
-}
+         </div>
+      )
+    }
+  } 
 }
 
 
