@@ -6,19 +6,23 @@ import ImageZoom from 'react-medium-image-zoom'
 class DogView extends Component {
   constructor(props) {
     super(props);
-     
-     
+     this.state = {
+        dogArray: []
+     } 
   } 
 
-  componentDidUpdate(){
-    console.log(this.props, 'this props bro')
+  componentWillMount(){
+    this.state.dogArray = [...this.props.dogInfo.imageUrls]
+    console.log(this.state.dogArray, 'componentWillMount')
   }
 
-   render() { 
-    console.log(this.props.dogInfo.dogName, 'DogView props')
-    let dogImageArray = [...this.props.dogInfo.imageUrls]
-    console.log(dogImageArray, 'dogImageArray')
-    if (dogImageArray.length === 0){
+  componentDidMount(){
+    this.state.dogArray = []
+    console.log(this.state.dogArray, 'componentDidMount')
+  }
+
+   render() {
+    if (this.state.dogArray.length === 0){
       return (
         <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
           <div className="loader"></div>
@@ -31,7 +35,7 @@ class DogView extends Component {
                 <div className="col-md-12 text-center" style={{paddingTop: '8em'}} >
                  <div style={{fontSize: '4em'}}>{this.props.dogInfo.dogName}</div>
                  <div className="d-flex align-content-between flex-wrap" >
-                  {dogImageArray.map((picture,i) =>{
+                  {this.state.dogArray.map((picture,i) =>{
                     return (
                       <div key={i}>
                         <ImageZoom
@@ -39,7 +43,7 @@ class DogView extends Component {
                             src:picture,
                             alt: `dog${i}`,
                             className: 'col',
-                            style: {margin:"4em 4em 1em 4em", height: '10em', width: '10em'}
+                            style: {margin:"4em 4em 1em 4em", height: '10em', width: '10em', borderRadius: '3em',}
                           }}
                           zoomImage={{
                             src: picture,
@@ -64,14 +68,9 @@ class DogView extends Component {
 }
 }
 
-const mapStateToProps = (store) => {
-  console.log(store, 'dog store')
-  return {
-    dogInfo: store.clickDog
-  }
-}
 
-export default connect(mapStateToProps)(DogView)
+
+export default DogView
 
 
                   
