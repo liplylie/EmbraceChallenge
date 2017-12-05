@@ -17,8 +17,10 @@ html , body {
 }
 
 .dogListEntry {
-	font-family: Verdana;
-	cursor: pointer
+	font-family: Helvetica;
+	cursor: pointer;
+	color: purple;
+	font-size: 1.5em;
 }
 
 .dogListEntry:hover {
