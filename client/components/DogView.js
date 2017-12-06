@@ -64,7 +64,7 @@ class DogView extends Component {
                             src:picture,
                             alt: `dog${i}`,
                             className: 'col',
-                            style: {margin:"4em 4em 1em 4em", height: '10em', width: '10em', borderRadius: '3em',}
+                            style: {margin:"4em 4em 1em 4em", height: '10em', width: '10em', borderRadius: '3em'}
                           }}
                           zoomImage={{
                             src: picture,

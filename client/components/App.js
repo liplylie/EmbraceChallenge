@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Router, Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -17,7 +17,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className="main">
           <Nav />
           <div style={{display: 'flex'}}>
@@ -26,10 +26,18 @@ class App extends Component {
               <Route exact path="/" component={DefaultHome} />
               <Route exact path="/dog/:dog" component={() => (<DogView dogInfo={this.props.dogInfo}/>)} /> />
               <Route exact path="/favoriteDogs" component={FavoriteDogs} />
+              <Route render={function() {
+                return (
+                  <div className='fourofour-section'>
+                    <p className='fourofour-status'>404</p>
+                    <p className='fourofour-description'>PAGE NOT FOUND!</p>
+                  </div>
+                  )
+              }} />
             </Switch>
           </div>
         </div>
-      </Router>
+      </BrowserRouter>
     )
   }
 }

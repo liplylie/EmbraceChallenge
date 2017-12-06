@@ -10,7 +10,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'../client/static')))
 app.use('/api', router)
-
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../client/static', 'index.html'));
+})
 app.listen(port, function(){
 	console.log("server is listening on port " + port)
 })

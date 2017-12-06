@@ -23983,7 +23983,23 @@ var App = function (_Component) {
                   return _react2.default.createElement(_DogView2.default, { dogInfo: _this2.props.dogInfo });
                 } }),
               ' />',
-              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/favoriteDogs', component: _FavoriteDogs2.default })
+              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/favoriteDogs', component: _FavoriteDogs2.default }),
+              _react2.default.createElement(_reactRouterDom.Route, { render: function render() {
+                  return _react2.default.createElement(
+                    'div',
+                    { className: 'fourofour-section' },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'fourofour-status' },
+                      '404'
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'fourofour-description' },
+                      'PAGE NOT FOUND!'
+                    )
+                  );
+                } })
             )
           )
         )
