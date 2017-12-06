@@ -17,6 +17,7 @@ DogLog is a simple web app that allows users to view different dogs, and add dog
 
 ### Start Up
 run "npm run all" in the terminal
+open localhost:3000 in a browser of your choice
 
 ### RESTful API
 You can find the request routes at server > routes > index.js
