@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Nav from './Nav.js'
-import DogView from './DogView.js'
-import FavoriteDogs from './FavoriteDogs.js'
-import DefaultHome from './DefaultHome.js'
+
+import Nav from './Nav.js';
+import DogView from './DogView.js';
+import FavoriteDogs from './FavoriteDogs.js';
+import DefaultHome from './DefaultHome.js';
 import SideNav from './SideNav.js'
 
 
@@ -20,7 +21,7 @@ class App extends Component {
         <div className="main">
           <Nav />
           <div style={{display: 'flex'}}>
-            <SideNav />
+          <SideNav />
             <Switch>
               <Route exact path="/" component={DefaultHome} />
               <Route exact path="/dog/:dog" component={() => (<DogView dogInfo={this.props.dogInfo}/>)} /> />
@@ -34,6 +35,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (store) => {
+  console.log(store, 'dog store in app js')
   return {
     dogInfo: store.clickDog
   }

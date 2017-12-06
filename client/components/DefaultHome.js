@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import SideNav from './SideNav.js'
+import React, { Component } from 'react';
+import SideNav from './SideNav.js';
 import { connect } from 'react-redux'
 import ImageZoom from 'react-medium-image-zoom'
 
 class DefaultHome extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() { 
@@ -29,8 +29,8 @@ class DefaultHome extends Component {
                   />
                 </div>
                 <div className="col-md-4"></div>
-                <div className="col-md-12 text-center" style={{backgroundColor: 'lightpink', marginTop: '1em'}}>
-                  <p style={{fontFamily: 'Helvetica', fontSize: 30}}> Click on any dog to get started!</p>  
+                <div className="col-md-12 text-center" style={{backgroundColor: 'lightpink', marginTop: '1em', fontFamily: 'Helvetica'}}>
+                  <p> Click on any dog to get started!</p>  
               </div>
           </div>
       </div>

@@ -11,6 +11,7 @@ class DogListEntries extends Component{
 	}
 
 	handleClick(dog){
+		console.log(dog, 'handleClick dog')
 		axios.get(`https://dog.ceo/api/breed/${dog}/images`)
 		.then(({data}) =>{
 			//console.log(data, 'data from get dog images')

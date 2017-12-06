@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import SideNav from './SideNav.js'
+import React, { Component } from 'react';
+import SideNav from './SideNav.js';
 import { connect } from 'react-redux'
 import ImageZoom from 'react-medium-image-zoom'
-import $ from 'jquery'
+import $ from "jquery";
 
 class DogView extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class DogView extends Component {
  render() {
   if (this.state.dogArray.length === 0){
     return (
-      <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', paddingTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
+      <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
         <div className="loader"></div>
       </div>
       )
@@ -51,7 +51,7 @@ class DogView extends Component {
                             src:picture,
                             alt: `dog${i}`,
                             className: 'col',
-                            style: {margin:'4em 4em 1em 4em', height: '10em', width: '10em', borderRadius: '3em',}
+                            style: {margin:"4em 4em 1em 4em", height: '10em', width: '10em', borderRadius: '3em',}
                           }}
                           zoomImage={{
                             src: picture,
@@ -59,7 +59,7 @@ class DogView extends Component {
                           }}
                         />
                         <div className="col-md-12 text-center"> 
-                          <a id={`but${i}`}className="btn btn-outline-dark" style={{marginBottom:'.5em'}} onClick={()=>{this.handleClick(i)}}>
+                          <a id={`but${i}`}className="btn btn-outline-dark" style={{marginBottom:".5em"}} onClick={()=>{this.handleClick(i)}}>
                           Add to Favorites
                           </a>
                         </div>
@@ -69,7 +69,7 @@ class DogView extends Component {
                 </div>
               </div>
             </div>
-        </div>
+         </div>
       )
     }
   } 

@@ -6,8 +6,7 @@ const addDogReducer = (state = initialState, action) => {
 	 switch(action.type) {
     case 'ADD_DOG': {
       return Object.assign({}, state, {
-        dogName: action.payload.dogName,
-        imageUrl: action.payload.imageUrl
+        dog: action.payload,
       })
     }
     default: {
