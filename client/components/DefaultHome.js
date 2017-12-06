@@ -15,7 +15,7 @@ class DefaultHome extends Component {
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4">
-                   <ImageZoom
+                  <ImageZoom
                     image={{
                       src: picture,
                       alt: 'dog',

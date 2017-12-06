@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import SideNav from './SideNav.js';
 import { connect } from 'react-redux'
 import ImageZoom from 'react-medium-image-zoom'
-import $ from "jquery";
+import $ from 'jquery'
+import axios from 'axios'
+
+const server = "http://localhost:3000"
 
 class DogView extends Component {
   constructor(props) {
@@ -23,8 +26,18 @@ class DogView extends Component {
     console.log(this.state.dogArray, 'componentDidMount')
   }
 
-  handleClick(i){
+  handleClick(i, dogName, picture){
     $(`#but${i}`).text("Added")
+    axios.post(`${server}/api/addFavoriteDog`, {
+      dogName: dogName,
+      dogImage: picture,
+    })
+    .then(data => {
+      console.log('add favorite dog successful')
+    })
+    .catch(err => {
+      console.log('add favorite dog failed')
+    })
   }
 
 
@@ -32,7 +45,7 @@ class DogView extends Component {
  render() {
   if (this.state.dogArray.length === 0){
     return (
-      <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
+      <div style={{flex:10, maxHeight: '100vh', marginTop: '3em', paddingTop: '3em', backgroundColor: 'lightpink',  overflow: "scroll"}}>
         <div className="loader"></div>
       </div>
       )
@@ -59,7 +72,7 @@ class DogView extends Component {
                           }}
                         />
                         <div className="col-md-12 text-center"> 
-                          <a id={`but${i}`}className="btn btn-outline-dark" style={{marginBottom:".5em"}} onClick={()=>{this.handleClick(i)}}>
+                          <a id={`but${i}`}className="btn btn-outline-dark" style={{marginBottom:".5em"}} onClick={()=>{this.handleClick(i, this.props.dogInfo.dogName, picture)}}>
                           Add to Favorites
                           </a>
                         </div>
